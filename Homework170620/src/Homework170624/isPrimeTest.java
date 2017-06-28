@@ -1,5 +1,7 @@
 package Homework170624;
 
+import mytestframework.SimpleUnit;
+
 public class isPrimeTest {
 	
 	public static void main(String[] args) {

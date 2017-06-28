@@ -1,5 +1,7 @@
 package Homework170624;
 
+import mytestframework.SimpleUnit;
+
 public class isFibonacciTest {
 	
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Homework170624;
+package mytestframework;
 
 public class SimpleUnit {
 
