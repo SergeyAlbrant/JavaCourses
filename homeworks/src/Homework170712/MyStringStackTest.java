@@ -22,6 +22,7 @@ public class MyStringStackTest {
 		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
 		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
 		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
+		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
 		
 	}
 	

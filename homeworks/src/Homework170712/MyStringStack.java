@@ -33,9 +33,13 @@ public class MyStringStack {
 		return Arrays.toString(Arrays.copyOfRange(arr, 0, size));
 	}
 
-	public boolean pop() {
-		// FIXME Auto-generated method stub
-		return false;
+	public String pop() {
+		if (size<=0){
+			return "";
+		}
+		String res = arr[--size];
+		arr[size]=null;
+		return res;
 	}
 
 	public boolean tos() {
