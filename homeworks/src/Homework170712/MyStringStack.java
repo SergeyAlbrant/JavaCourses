@@ -42,9 +42,8 @@ public class MyStringStack {
 		return res;
 	}
 
-	public boolean tos() {
-		// FIXME Auto-generated method stub
-		return false;
+	public String tos() {
+		return (size<=0) ? "" : arr[size-1];
 	}
 
 }

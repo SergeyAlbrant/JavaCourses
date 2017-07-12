@@ -19,10 +19,13 @@ public class MyStringStackTest {
 		System.out.println(SimpleUnit.assertEquals(stack.pop(), "one"));
 		System.out.println(SimpleUnit.assertEquals(stack.pop(), ""));
 		
-		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
-		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
-		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
-		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
+		System.out.println(SimpleUnit.assertNotEquals(stack.push("two"), false));
+		System.out.println(SimpleUnit.assertNotEquals(stack.push("three"), false));
+		
+		System.out.println(SimpleUnit.assertEquals(stack.tos(), "three"));
+		System.out.println(SimpleUnit.assertNotEquals(stack.tos(), "two"));
+		System.out.println(SimpleUnit.assertEquals(stack.pop(), "three"));
+		System.out.println(SimpleUnit.assertEquals(stack.tos(), "two"));
 		
 	}
 	
