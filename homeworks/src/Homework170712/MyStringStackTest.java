@@ -10,16 +10,18 @@ public class MyStringStackTest {
 		MyStringStack stack = new MyStringStack();
 		
 		System.out.println(SimpleUnit.assertEquals(stack.push("one"), true));
-		System.out.println(SimpleUnit.assertEquals(stack.push(""), true));
 		System.out.println(SimpleUnit.assertEquals(stack.push("two"), true));
+		System.out.println(SimpleUnit.assertEquals(stack.push("three"), true));
 		System.out.println(SimpleUnit.assertEquals(stack.push("three"), false));
 		
-		System.out.println(SimpleUnit.assertEquals(stack.pop(), true));
-		System.out.println(SimpleUnit.assertEquals(stack.pop(), true));
+		System.out.println(SimpleUnit.assertEquals(stack.pop(), "three"));
+		System.out.println(SimpleUnit.assertEquals(stack.pop(), "two"));
+		System.out.println(SimpleUnit.assertEquals(stack.pop(), "one"));
+		System.out.println(SimpleUnit.assertEquals(stack.pop(), ""));
 		
-		System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
-		System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
-		System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
+		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
+		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
+		//System.out.println(SimpleUnit.assertEquals(stack.tos(), true));
 		
 	}
 	
