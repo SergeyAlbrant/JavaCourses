@@ -22,6 +22,7 @@ class Card {
 	private final int rank;
 	private final int suit;
 	private boolean faceup;
+	protected boolean isSelected;
 	
 	Card link;
 
@@ -36,7 +37,12 @@ class Card {
 	public void draw(final Graphics g, final int x, final int y) { 
 		// clear rectangle, draw border
 		g.clearRect(x, y, width, height);
-		g.setColor(Color.black);
+		if (isSelected) {
+			g.setColor(Color.cyan);
+		}
+		else g.setColor(Color.black);
+		isSelected=false;
+		
 		g.drawRect(x, y, width, height);
 		// draw body of card
 		if (isFaceUp()) {

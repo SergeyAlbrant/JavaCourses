@@ -11,6 +11,8 @@ public class Solitare extends Applet {
 	static TablePile tableau[];
 	static SuitPile suitPile[];
 	static CardPile allPiles[];
+	static boolean firstClick = true;
+	static CardPile firstPile;
 
 	@Override
 	public void init() {
@@ -41,7 +43,7 @@ public class Solitare extends Applet {
 	public boolean mouseDown(Event evt, int x, int y) {
 		for (int i = 0; i < 13; i++) {
 			if (allPiles[i].includes(x, y)) {
-				allPiles[i].select(x, y);
+				allPiles[i].doStuff();
 				repaint();
 				return true;
 			}

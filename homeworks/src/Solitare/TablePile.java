@@ -4,6 +4,8 @@ import java.awt.Graphics;
 
 class TablePile extends CardPile {
 
+	//static int HeightOfPile=getNumberOfCards();
+	
 	TablePile(int x, int y, int c) {
 		// initialize the parent class
 		super(x, y);
@@ -14,6 +16,8 @@ class TablePile extends CardPile {
 		// flip topmost card face up
 		top().flip();
 	}
+	
+
 
 	@Override
 	public boolean canTake(Card aCard) {
@@ -28,10 +32,11 @@ class TablePile extends CardPile {
 	@Override
 	public boolean includes(int tx, int ty) {
 		// don't test bottom of card
-		return x <= tx && tx <= x + Card.width && y <= ty;
-		
+		return x <= tx && tx <= x + Card.width && y <= ty &&
+                (y+(countOfCards()-1)* 35) <= ty && 
+                ty<= (y+(countOfCards()-1)* 35 + Card.height);
+	
 	}
-
 	
 
 	private int stackDisplay(Graphics g, Card aCard) {
@@ -48,5 +53,7 @@ class TablePile extends CardPile {
 	public void display(Graphics g) {
 		stackDisplay(g, top());
 	}
+	
+	
 
 }

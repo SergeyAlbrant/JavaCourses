@@ -16,8 +16,5 @@ class SuitPile extends CardPile {
 				&& (aCard.getRank() == 1 + topCard.getRank());
 	}
 	
-	@Override
-	public void select(int tx, int ty) {
-		
-	}
+	
 }

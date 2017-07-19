@@ -47,38 +47,18 @@ class CardPile {
 				&& clickY <= y + Card.height;
 	}
 
-	public void select(final int tx, final int ty) {
-		// do nothing
+	public void select(final int tx, final int ty, CardPile firstPile) {
 		
-		if (empty()) {
+		
+//		if (empty()) {//to do
+//			return;
+//		}
+//
+		
+		if (this.canTake(firstPile.top())) {
+			this.push(firstPile.pop());
 			return;
 		}
-
-		// if face down, then flip
-		if (this instanceof TablePile){
-			Card topCard = top();
-			if (!topCard.isFaceUp()) {
-				topCard.flip();
-				return;
-			}
-		}
-		// else see if any suit pile can take card
-		Card topCard = pop();
-		for (int i = 0; i < 4; i++) {
-			if (Solitare.suitPile[i].canTake(topCard)) {
-				Solitare.suitPile[i].push(topCard);
-				return;
-			}
-		}
-		// else see if any other table pile can take card
-		for (int i = 0; i < 7; i++) {
-			if (Solitare.tableau[i].canTake(topCard)) {
-				Solitare.tableau[i].push(topCard);
-				return;
-			}
-		}
-		// else put it back on our pile
-		push(topCard);
 		
 	}
 
@@ -95,5 +75,40 @@ class CardPile {
 	public boolean canTake(final Card aCard) {
 		return false;
 	}
+	
+	public int countOfCards() {
+        int count = 0;
+        Card temp = this.firstCard;
+        while (temp != null) {
+            temp = temp.link;
+            count++;
+        }
+        return count;
+    }
+
+	public void doStuff() {
+
+		if (Solitare.firstClick){
+			if (empty()) {
+				return;
+			}
+			
+			if (!this.top().isFaceUp()){
+					this.top().flip();
+					return;
+			}
+			this.top().isSelected=true;
+			Solitare.firstClick = false;
+			Solitare.firstPile=this;
+			
+	}
+		else {
+			select(x, y, Solitare.firstPile);
+			Solitare.firstClick = true;
+			Solitare.firstPile = null;
+		}
+	}
+	
+	
 
 }
