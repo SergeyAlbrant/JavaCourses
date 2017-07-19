@@ -46,6 +46,7 @@ public class Solitare extends Applet {
 				allPiles[i].doStuff();
 				repaint();
 				return true;
+				
 			}
 		}
 		return true;
