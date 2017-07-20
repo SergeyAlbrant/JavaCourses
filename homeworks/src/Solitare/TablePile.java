@@ -6,6 +6,9 @@ class TablePile extends CardPile {
 
 	//static int HeightOfPile=getNumberOfCards();
 	
+	
+	
+	
 	TablePile(int x, int y, int c) {
 		// initialize the parent class
 		super(x, y);
@@ -16,6 +19,8 @@ class TablePile extends CardPile {
 		// flip topmost card face up
 		top().flip();
 	}
+
+	
 	
 
 
@@ -33,7 +38,7 @@ class TablePile extends CardPile {
 	public boolean includes(int tx, int ty) {
 		// don't test bottom of card
 		return x <= tx && tx <= x + Card.width && y <= ty &&
-                (y+(countOfCards()-1)* 35) <= ty && 
+            //  (y+(countOfCards()-1)* 35) <= ty && 
                 ty<= (y+(countOfCards()-1)* 35 + Card.height);
 	
 	}
@@ -52,6 +57,32 @@ class TablePile extends CardPile {
 	@Override
 	public void display(Graphics g) {
 		stackDisplay(g, top());
+	}
+	
+	//public void push(Card aCard, int numberOfElements) {
+	//	// FIXME Auto-generated method stub
+	//	super.push(aCard);
+	//}
+	
+	@Override
+	public void select(int tx, int ty, CardPile firstPile) {
+		// FIXME Auto-generated method stub
+		if (this.canTake(Solitare.selectedCard)) {
+			CardPile temp = new CardPile(tx, ty);
+			
+			//push(Solitare.selectedCard);
+			for (int i = 0; i < numberOfSelectedCards; i++) {
+				
+				temp.push(firstPile.pop());
+			}
+			for (int i = 0; i < numberOfSelectedCards; i++) {
+				
+				push(temp.pop());
+			}
+	
+
+		}
+
 	}
 	
 	

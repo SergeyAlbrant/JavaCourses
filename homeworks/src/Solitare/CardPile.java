@@ -9,6 +9,7 @@ class CardPile {
 	protected int x;
 	protected int y;
 	private Card firstCard;
+	static int numberOfSelectedCards;
 
 	CardPile(final int xCoord, final int yCoord) {
 		x = xCoord;
@@ -50,12 +51,7 @@ class CardPile {
 	public void select(final int tx, final int ty, CardPile firstPile) {
 		
 		
-//		if (empty()) {//to do
-//			return;
-//		}
-//
-		
-		if (this.canTake(firstPile.top())) {
+		if (numberOfSelectedCards== 1 && this.canTake(firstPile.top())) {
 			this.push(firstPile.pop());
 			return;
 		}
@@ -86,7 +82,7 @@ class CardPile {
         return count;
     }
 
-	public void doStuff() {
+	public void doStuff(int tx, int ty) {
 
 		if (Solitare.firstClick){
 			if (empty()) {
@@ -97,7 +93,22 @@ class CardPile {
 					this.top().flip();
 					return;
 			}
-			this.top().isSelected=true;
+			
+			Solitare.selectedCard = this.firstCard;
+			if (this instanceof TablePile) {
+				int i = 1;
+				while (Solitare.selectedCard != null) {
+
+					if (y + (countOfCards() - i) * 35 <= ty && Solitare.selectedCard.isFaceUp()) {
+						numberOfSelectedCards = i;
+						break;
+					}
+					Solitare.selectedCard = Solitare.selectedCard.link;
+					i++;
+				} 
+			}
+			else numberOfSelectedCards = 1;
+			Solitare.selectedCard.isSelected=true;
 			Solitare.firstClick = false;
 			Solitare.firstPile=this;
 			
@@ -106,6 +117,8 @@ class CardPile {
 			select(x, y, Solitare.firstPile);
 			Solitare.firstClick = true;
 			Solitare.firstPile = null;
+			Solitare.selectedCard.isSelected=false;
+			numberOfSelectedCards = 0;
 		}
 	}
 	

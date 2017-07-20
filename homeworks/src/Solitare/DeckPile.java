@@ -33,7 +33,7 @@ class DeckPile extends CardPile {
 	}
 
 	@Override
-	public void doStuff() {
+	public void doStuff(int x, int y) {
 		if (empty()) {
 			return;
 		}
