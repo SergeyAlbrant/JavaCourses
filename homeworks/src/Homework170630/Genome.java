@@ -20,7 +20,7 @@ public class Genome {
 		int counter = 0;
 		boolean flag=true;
 		
-		for (int i = 0; i < data.length - w; i++) {
+  		for (int i = 0; i < data.length - w; i++) {
 			 for (int j = i+1; j < data.length - w + 1; j++) {
 				flag=true;
 				for (int k = 0; k < w; k++) {
