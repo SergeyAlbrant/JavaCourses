@@ -13,8 +13,5 @@ class DiscardPile extends CardPile {
 		}
 		super.push(aCard);
 	}
-	
-	
 
-	
 }

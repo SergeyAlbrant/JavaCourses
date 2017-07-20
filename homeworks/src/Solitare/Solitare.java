@@ -1,7 +1,7 @@
 package Solitare;
 
 import java.applet.Applet;
-
+import java.awt.Dimension;
 import java.awt.Event;
 import java.awt.Graphics;
 
@@ -19,6 +19,7 @@ public class Solitare extends Applet {
 	public void init() {
 		// first allocate the arrays
 		//setBackground(Color.lightGray);
+		this.setSize(new Dimension(400,400));
 		allPiles = new CardPile[13];
 		suitPile = new SuitPile[4];
 		tableau = new TablePile[7];

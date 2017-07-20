@@ -79,6 +79,7 @@ class TablePile extends CardPile {
 				
 				push(temp.pop());
 			}
+			if (!firstPile.empty()) firstPile.top().flip();
 	
 
 		}

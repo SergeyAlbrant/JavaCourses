@@ -3,6 +3,9 @@ package Solitare;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
+
 class CardPile {
 
 	// coordinates of the card pile
@@ -53,8 +56,21 @@ class CardPile {
 		
 		if (numberOfSelectedCards== 1 && this.canTake(firstPile.top())) {
 			this.push(firstPile.pop());
+			
 			return;
 		}
+		
+		boolean win = true;
+		for (int i = 0; i < 2 || i > 5; i++) {
+			if (!Solitare.allPiles[2 + i].empty()){
+				win = false;
+				break;
+			}
+		}
+		if (win) {
+			//TODO
+		}
+		
 		
 	}
 
@@ -89,10 +105,10 @@ class CardPile {
 				return;
 			}
 			
-			if (!this.top().isFaceUp()){
-					this.top().flip();
-					return;
-			}
+//			if (!this.top().isFaceUp()){
+//					this.top().flip();
+//					return;
+//			}
 			
 			Solitare.selectedCard = this.firstCard;
 			if (this instanceof TablePile) {
@@ -108,6 +124,9 @@ class CardPile {
 				} 
 			}
 			else numberOfSelectedCards = 1;
+			
+			if (Solitare.selectedCard == null) return;
+			
 			Solitare.selectedCard.isSelected=true;
 			Solitare.firstClick = false;
 			Solitare.firstPile=this;
@@ -115,6 +134,7 @@ class CardPile {
 	}
 		else {
 			select(x, y, Solitare.firstPile);
+			if (!Solitare.firstPile.empty() && !Solitare.firstPile.top().isFaceUp()) Solitare.firstPile.top().flip();
 			Solitare.firstClick = true;
 			Solitare.firstPile = null;
 			Solitare.selectedCard.isSelected=false;
