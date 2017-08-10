@@ -1,3 +1,4 @@
+package HackerRank;
 import java.util.Scanner;
 
 class Node {
