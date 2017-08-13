@@ -1,4 +1,4 @@
-package Homework170704;
+package CodingBat;
 
 import java.util.Arrays;
 

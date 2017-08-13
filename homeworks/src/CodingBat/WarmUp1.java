@@ -1,4 +1,4 @@
-package Homework170620;
+package CodingBat;
 
 public class WarmUp1 {
 	

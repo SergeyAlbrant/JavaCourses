@@ -1,4 +1,4 @@
-package Homework170701;
+package CodingBat;
 
 public class Logic1 {
 

@@ -1,4 +1,4 @@
-package Homework170706;
+package CodingBat;
 
 public class String2 {
 
