@@ -15,7 +15,7 @@ public class WordFrequency {
 		System.out.println(map);
 		
 		Map map2 = countFrequencyWithMerge(list);
-		System.out.println(map);
+		System.out.println(map2);
 
 	}
 
