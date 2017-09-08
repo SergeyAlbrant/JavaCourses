@@ -92,16 +92,17 @@ public class UseTrader {
 		//7 What’s the highest value of all the transactions? 
 		
 		Optional<Integer> result7 = transactions.stream()
-				.map(Transaction::getValue).reduce(Integer::max);  //èëè max
+				.map(Transaction::getValue).reduce(Integer::max);  //or max instead of reduce
 		
 		System.out.println(result7.get());
 		
 		
 		//8 Find the transaction with the smallest value.
 		Optional<Transaction> result8 = transactions.stream()
-				.min(Comparator.comparing(Transaction::getValue));  //èëè max
+				.min(Comparator.comparing(Transaction::getValue)); 
 		
 		System.out.println(result8.get());
+		
 	}
 
 }
